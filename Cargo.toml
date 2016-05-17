@@ -8,7 +8,7 @@ repository = "https://github.com/hroi/netsnmp-sys"
 documentation = "https://hroi.github.com/netsnmp-sys/"
 links = "netsnmp"
 build = "build.rs"
-license = "BSD"
+license = "BSD-2-Clause"
 
 [dependencies]
 libc = "0.2.*"
