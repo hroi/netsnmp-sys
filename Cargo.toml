@@ -1,9 +1,14 @@
 [package]
 name = "netsnmp-sys"
+description = "Rust FFI bindings to Net-SNMP"
 version = "0.1.0"
 authors = ["Hroi Sigurdsson <hroi@asdf.dk>"]
-links="netsnmp"
-build="build.rs"
+keywords = ["networking", "snmp"]
+repository = "https://github.com/hroi/netsnmp-sys"
+documentation = "https://hroi.github.com/netsnmp-sys/"
+links = "netsnmp"
+build = "build.rs"
+license = "BSD"
 
 [dependencies]
 libc = "0.2.*"
