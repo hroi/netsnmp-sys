@@ -1,0 +1,9 @@
+[package]
+name = "netsnmp-sys"
+version = "0.1.0"
+authors = ["Hroi Sigurdsson <hroi@asdf.dk>"]
+links="netsnmp"
+build="build.rs"
+
+[dependencies]
+libc = "0.2.*"
