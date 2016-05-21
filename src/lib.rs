@@ -14,6 +14,10 @@ pub const SNMP_VERSION_1:    raw::c_long = 0;
 pub const SNMP_VERSION_2c:   raw::c_long = 1;
 pub const SNMP_VERSION_3:    raw::c_long = 3;
 
+pub const SNMP_SEC_LEVEL_NOAUTH:     raw::c_int = 1;
+pub const SNMP_SEC_LEVEL_AUTHNOPRIV: raw::c_int = 2;
+pub const SNMP_SEC_LEVEL_AUTHPRIV:   raw::c_int = 3;
+
 pub const SNMP_MSG_GET:      raw::c_int = 160;
 pub const SNMP_MSG_GETNEXT:  raw::c_int = 161;
 pub const SNMP_MSG_RESPONSE: raw::c_int = 162;
@@ -148,6 +152,9 @@ pub const ASN_FLOAT:        raw::c_uchar = (ASN_APPLICATION |  8);
 pub const ASN_DOUBLE:       raw::c_uchar = (ASN_APPLICATION |  9);
 pub const ASN_INTEGER64:    raw::c_uchar = (ASN_APPLICATION | 10);
 pub const ASN_UNSIGNED64:   raw::c_uchar = (ASN_APPLICATION | 11);
+
+pub const USM_AUTH_KU_LEN: usize = 32;
+pub const USM_PRIV_KU_LEN: usize = 32;
 
 mod auto;
 pub use auto::*;

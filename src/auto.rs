@@ -131,7 +131,112 @@ pub type netsnmp_callback =
                                                arg5:
                                                    *mut ::std::os::raw::c_void)
                               -> ::std::os::raw::c_int>;
-pub enum Struct_netsnmp_container_s { }
+//pub enum Struct_netsnmp_container_s { }
+pub type netsnmp_container_mod_op =
+    unsafe extern "C" fn(arg1: *mut Struct_netsnmp_container_s,
+                         context: *mut ::std::os::raw::c_void, flags: ::std::os::raw::c_uint)
+        -> *mut Struct_netsnmp_container_s;
+pub type netsnmp_container_option =
+    unsafe extern "C" fn(arg1: *mut Struct_netsnmp_container_s,
+                         set: ::std::os::raw::c_int, flags: ::std::os::raw::c_uint)
+        -> ::std::os::raw::c_int;
+pub type netsnmp_container_rc =
+    unsafe extern "C" fn(arg1: *mut Struct_netsnmp_container_s)
+        -> ::std::os::raw::c_int;
+pub type netsnmp_container_it =
+    unsafe extern "C" fn(arg1: *mut Struct_netsnmp_container_s)
+        -> *mut Struct_netsnmp_iterator_s;
+pub type netsnmp_container_size =
+    unsafe extern "C" fn(arg1: *mut Struct_netsnmp_container_s)
+        -> ::std::os::raw::c_ulong;
+pub type netsnmp_container_op =
+    unsafe extern "C" fn(arg1: *mut Struct_netsnmp_container_s,
+                         data: *const ::std::os::raw::c_void)
+        -> ::std::os::raw::c_int;
+pub type netsnmp_container_rtn =
+    unsafe extern "C" fn(arg1: *mut Struct_netsnmp_container_s,
+                         data: *const ::std::os::raw::c_void)
+        -> *mut ::std::os::raw::c_void;
+pub type netsnmp_container_obj_func =
+    unsafe extern "C" fn(data: *mut ::std::os::raw::c_void,
+                         context: *mut ::std::os::raw::c_void);
+pub type netsnmp_container_func =
+    unsafe extern "C" fn(arg1: *mut Struct_netsnmp_container_s,
+                         arg2: *mut netsnmp_container_obj_func,
+                         context: *mut ::std::os::raw::c_void);
+pub type netsnmp_container_set =
+    unsafe extern "C" fn(arg1: *mut Struct_netsnmp_container_s,
+                         data: *mut ::std::os::raw::c_void)
+        -> *mut Struct_netsnmp_void_array_s;
+pub type netsnmp_container_compare =
+    unsafe extern "C" fn(lhs: *const ::std::os::raw::c_void,
+                         rhs: *const ::std::os::raw::c_void)
+        -> ::std::os::raw::c_int;
+
+#[repr(C)]
+#[derive(Copy)]
+pub struct Struct_netsnmp_container_s {
+    pub container_data: *mut ::std::os::raw::c_void,
+    pub get_size: *mut netsnmp_container_size,
+    pub init: *mut netsnmp_container_rc,
+    pub cfree: *mut netsnmp_container_rc,
+    pub insert: *mut netsnmp_container_op,
+    pub remove: *mut netsnmp_container_op,
+    pub release: *mut netsnmp_container_op,
+    pub free_item: *mut netsnmp_container_obj_func,
+    pub find: *mut netsnmp_container_rtn,
+    pub find_next: *mut netsnmp_container_rtn,
+    pub get_subset: *mut netsnmp_container_set,
+    pub get_iterator: *mut netsnmp_container_it,
+    pub for_each: *mut netsnmp_container_func,
+    pub clear: *mut netsnmp_container_func,
+    pub insert_filter: *mut netsnmp_container_op,
+    pub duplicate: *mut netsnmp_container_mod_op,
+    pub compare: *mut netsnmp_container_compare,
+    pub ncompare: *mut netsnmp_container_compare,
+    pub options: *mut netsnmp_container_option,
+    pub container_name: *mut ::std::os::raw::c_char,
+    pub sync: ::std::os::raw::c_ulong,
+    pub flags: ::std::os::raw::c_uint,
+    pub next: *mut Struct_netsnmp_container_s,
+    pub prev: *mut Struct_netsnmp_container_s,
+}
+impl ::std::clone::Clone for Struct_netsnmp_container_s {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_netsnmp_container_s {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+pub type netsnmp_container = Struct_netsnmp_container_s;
+
+pub type netsnmp_iterator_rc =
+    unsafe extern "C" fn(arg1: *mut Struct_netsnmp_iterator_s)
+                         -> ::std::os::raw::c_int;
+pub type netsnmp_iterator_rtn =
+    unsafe extern "C" fn(arg1: *mut Struct_netsnmp_iterator_s)
+                         -> *mut ::std::os::raw::c_void;
+#[repr(C)]
+#[derive(Copy)]
+pub struct Struct_netsnmp_iterator_s {
+    pub container: *mut netsnmp_container,
+    pub sync: ::std::os::raw::c_ulong,
+    pub reset: *mut netsnmp_iterator_rc,
+    pub release: *mut netsnmp_iterator_rc,
+    pub first: *mut netsnmp_iterator_rtn,
+    pub curr: *mut netsnmp_iterator_rtn,
+    pub last: *mut netsnmp_iterator_rtn,
+    pub next: *mut netsnmp_iterator_rtn,
+    pub remove: *mut netsnmp_iterator_rc,
+}
+impl ::std::clone::Clone for Struct_netsnmp_iterator_s {
+    fn clone(&self) -> Self { *self }
+}
+impl ::std::default::Default for Struct_netsnmp_iterator_s {
+    fn default() -> Self { unsafe { ::std::mem::zeroed() } }
+}
+pub type netsnmp_iterator = Struct_netsnmp_iterator_s;
+
+
 #[repr(C)]
 #[derive(Copy)]
 pub struct Struct_snmp_session {
