@@ -14,6 +14,13 @@ pub const SNMP_VERSION_1:    raw::c_long = 0;
 pub const SNMP_VERSION_2c:   raw::c_long = 1;
 pub const SNMP_VERSION_3:    raw::c_long = 3;
 
+pub const SNMP_SEC_MODEL_ANY:        raw::c_int = 0;
+pub const SNMP_SEC_MODEL_SNMPv1:     raw::c_int = 1;
+pub const SNMP_SEC_MODEL_SNMPv2c:    raw::c_int = 2;
+pub const SNMP_SEC_MODEL_USM:        raw::c_int = 3;
+pub const SNMP_SEC_MODEL_TSM:        raw::c_int = 4;
+pub const SNMP_SEC_MODEL_SNMPv2p:    raw::c_int = 256;
+
 pub const SNMP_SEC_LEVEL_NOAUTH:     raw::c_int = 1;
 pub const SNMP_SEC_LEVEL_AUTHNOPRIV: raw::c_int = 2;
 pub const SNMP_SEC_LEVEL_AUTHPRIV:   raw::c_int = 3;
