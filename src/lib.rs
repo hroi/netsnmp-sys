@@ -163,14 +163,21 @@ pub const ASN_UNSIGNED64:   raw::c_uchar = (ASN_APPLICATION | 11);
 pub const USM_AUTH_KU_LEN: usize = 32;
 pub const USM_PRIV_KU_LEN: usize = 32;
 
+pub const NETSNMP_CALLBACK_OP_RECEIVED_MESSAGE: raw::c_int = 1;
+pub const NETSNMP_CALLBACK_OP_TIMED_OUT:        raw::c_int = 2;
+pub const NETSNMP_CALLBACK_OP_SEND_FAILED:      raw::c_int = 3;
+pub const NETSNMP_CALLBACK_OP_CONNECT:          raw::c_int = 4;
+pub const NETSNMP_CALLBACK_OP_DISCONNECT:       raw::c_int = 5;
+
 mod auto;
 pub use auto::*;
 
-static INIT: Once = ONCE_INIT;
 
 pub fn init(typ: &[u8]) {
+    static INIT: Once = ONCE_INIT;
+
     let mut type_dup = [0u8; 256];
-    type_dup[..typ.len()].clone_from_slice(typ);
+    type_dup[..typ.len()].copy_from_slice(typ);
     unsafe {
         INIT.call_once(||{
             init_snmp(type_dup.as_ptr() as *mut raw::c_char);
