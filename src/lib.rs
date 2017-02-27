@@ -239,13 +239,13 @@ mod auto;
 pub use auto::*;
 
 
-pub fn init(typ: &[u8]) {
+pub fn init_once(typ: &[u8]) {
 	static INIT: Once = ONCE_INIT;
 	INIT.call_once(||{
-	   init_always(typ);
+	   init(typ);
 	})
 }
-pub fn init_always(typ: &[u8]) {
+pub fn init(typ: &[u8]) {
 	let mut type_dup = [0u8; 256];
 	type_dup[..typ.len()].copy_from_slice(typ);
 	unsafe {
