@@ -169,22 +169,99 @@ pub const NETSNMP_CALLBACK_OP_SEND_FAILED:      raw::c_int = 3;
 pub const NETSNMP_CALLBACK_OP_CONNECT:          raw::c_int = 4;
 pub const NETSNMP_CALLBACK_OP_DISCONNECT:       raw::c_int = 5;
 
+pub const NETSNMP_DS_LIBRARY_ID:	raw::c_int = 0;
+pub const NETSNMP_DS_APPLICATION_ID: raw::c_int = 1;
+pub const NETSNMP_DS_TOKEN_ID:	raw::c_int = 2;
+pub const NETSNMP_DS_LIB_MIB_ERRORS:	raw::c_int = 0;
+pub const NETSNMP_DS_LIB_SAVE_MIB_DESCRS:	raw::c_int = 1;
+pub const NETSNMP_DS_LIB_MIB_COMMENT_TERM:	raw::c_int = 2;
+pub const NETSNMP_DS_LIB_MIB_PARSE_LABEL:	raw::c_int = 3;
+pub const NETSNMP_DS_LIB_DUMP_PACKET:	raw::c_int = 4;
+pub const NETSNMP_DS_LIB_LOG_TIMESTAMP:	raw::c_int = 5;
+pub const NETSNMP_DS_LIB_DONT_READ_CONFIGS:	raw::c_int = 6;
+pub const NETSNMP_DS_LIB_MIB_REPLACE:	raw::c_int = 7;
+pub const NETSNMP_DS_LIB_PRINT_NUMERIC_ENUM:	raw::c_int = 8;
+pub const NETSNMP_DS_LIB_PRINT_NUMERIC_OIDS:	raw::c_int = 9;
+pub const NETSNMP_DS_LIB_DONT_BREAKDOWN_OIDS:	raw::c_int = 10;
+pub const NETSNMP_DS_LIB_ALARM_DONT_USE_SIG:	raw::c_int = 11 ;
+pub const NETSNMP_DS_LIB_PRINT_FULL_OID:	raw::c_int = 12;
+pub const NETSNMP_DS_LIB_QUICK_PRINT:	raw::c_int = 13;
+pub const NETSNMP_DS_LIB_RANDOM_ACCESS:	raw::c_int = 14;
+pub const NETSNMP_DS_LIB_REGEX_ACCESS:	raw::c_int = 15;
+pub const NETSNMP_DS_LIB_DONT_CHECK_RANGE:	raw::c_int = 16 ;
+pub const NETSNMP_DS_LIB_NO_TOKEN_WARNINGS:	raw::c_int = 17 ;
+pub const NETSNMP_DS_LIB_NUMERIC_TIMETICKS:	raw::c_int = 18;
+pub const NETSNMP_DS_LIB_ESCAPE_QUOTES:	raw::c_int = 19;
+pub const NETSNMP_DS_LIB_REVERSE_ENCODE:	raw::c_int = 20 ;
+pub const NETSNMP_DS_LIB_PRINT_BARE_VALUE:	raw::c_int = 21;
+pub const NETSNMP_DS_LIB_EXTENDED_INDEX:	raw::c_int = 22;
+pub const NETSNMP_DS_LIB_PRINT_HEX_TEXT:	raw::c_int = 23;
+pub const NETSNMP_DS_LIB_PRINT_UCD_STYLE_OID:	raw::c_int =  24;
+pub const NETSNMP_DS_LIB_READ_UCD_STYLE_OID:	raw::c_int = 25 ;
+pub const NETSNMP_DS_LIB_HAVE_READ_PREMIB_CONFIG:	raw::c_int = 26;
+pub const NETSNMP_DS_LIB_HAVE_READ_CONFIG:	raw::c_int = 27;
+pub const NETSNMP_DS_LIB_QUICKE_PRINT:	raw::c_int = 28;
+pub const NETSNMP_DS_LIB_DONT_PRINT_UNITS:	raw::c_int = 29;
+pub const NETSNMP_DS_LIB_NO_DISPLAY_HINT:	raw::c_int = 30;
+pub const NETSNMP_DS_LIB_16BIT_IDS:	raw::c_int = 31;
+pub const NETSNMP_DS_LIB_DONT_PERSIST_STATE:	raw::c_int = 32;
+pub const NETSNMP_DS_LIB_2DIGIT_HEX_OUTPUT:	raw::c_int = 33;
+
+pub const NETSNMP_DS_LIB_MIB_WARNINGS:	raw::c_uchar = 0;
+pub const NETSNMP_DS_LIB_SECLEVEL:	raw::c_uchar = 1;
+pub const NETSNMP_DS_LIB_SNMPVERSION:	raw::c_uchar = 2;
+pub const NETSNMP_DS_LIB_DEFAULT_PORT:	raw::c_uchar = 3;
+pub const NETSNMP_DS_LIB_OID_OUTPUT_FORMAT:	raw::c_uchar = 4;
+pub const NETSNMP_DS_LIB_STRING_OUTPUT_FORMAT:	raw::c_uchar = 5;
+
+pub const NETSNMP_DS_LIB_SECNAME:	raw::c_uchar = 0;
+pub const NETSNMP_DS_LIB_CONTEXT:	raw::c_uchar = 1;
+pub const NETSNMP_DS_LIB_PASSPHRASE:	raw::c_uchar = 2;
+pub const NETSNMP_DS_LIB_AUTHPASSPHRASE:	raw::c_uchar = 3;
+pub const NETSNMP_DS_LIB_PRIVPASSPHRASE:	raw::c_uchar = 4;
+pub const NETSNMP_DS_LIB_OPTIONALCONFIG:	raw::c_uchar = 5;
+pub const NETSNMP_DS_LIB_APPTYPE:	raw::c_uchar = 6;
+pub const NETSNMP_DS_LIB_COMMUNITY:	raw::c_uchar = 7;
+pub const NETSNMP_DS_LIB_PERSISTENT_DIR:	raw::c_uchar = 8;
+pub const NETSNMP_DS_LIB_CONFIGURATION_DIR:	raw::c_uchar = 9;
+pub const NETSNMP_DS_LIB_SECMODEL:	raw::c_uchar = 10;
+pub const NETSNMP_DS_LIB_MIBDIRS:	raw::c_uchar = 11;
+pub const NETSNMP_DS_LIB_OIDSUFFIX:	raw::c_uchar = 12;
+pub const NETSNMP_DS_LIB_OIDPREFIX:	raw::c_uchar = 13;
+pub const NETSNMP_DS_LIB_CLIENT_ADDR:	raw::c_uchar = 14;
+pub const NETSNMP_DS_LIB_TEMP_FILE_PATTERN:	raw::c_uchar = 15;
+pub const NETSNMP_DS_LIB_AUTHMASTERKEY:	raw::c_uchar = 16;
+pub const NETSNMP_DS_LIB_PRIVMASTERKEY:	raw::c_uchar = 17;
+pub const NETSNMP_DS_LIB_AUTHLOCALIZEDKEY:	raw::c_uchar = 18;
+pub const NETSNMP_DS_LIB_PRIVLOCALIZEDKEY:	raw::c_uchar = 19;
+
 mod auto;
 pub use auto::*;
 
 
-pub fn init(typ: &[u8]) {
-    static INIT: Once = ONCE_INIT;
-
-    let mut type_dup = [0u8; 256];
-    type_dup[..typ.len()].copy_from_slice(typ);
-    unsafe {
-        INIT.call_once(||{
-            init_snmp(type_dup.as_ptr() as *mut raw::c_char);
-            netsnmp_init_mib();
-        })
-    }
+pub fn init_once(typ: &[u8]) {
+	static INIT: Once = ONCE_INIT;
+	INIT.call_once(||{
+	   init(typ);
+	})
 }
-
+pub fn init(typ: &[u8]) {
+	let mut type_dup = [0u8; 256];
+	type_dup[..typ.len()].copy_from_slice(typ);
+	unsafe {
+		init_snmp(type_dup.as_ptr() as *mut raw::c_char);
+		netsnmp_init_mib();
+	}
+}
+pub fn shutdown(typ: &[u8], persist: bool) {
+	let mut type_dup = [0u8; 256];
+	type_dup[..typ.len()].copy_from_slice(typ);
+	unsafe{
+		if !persist {
+			netsnmp_ds_set_boolean(NETSNMP_DS_LIBRARY_ID, NETSNMP_DS_LIB_DONT_PERSIST_STATE, 1);
+		}
+		snmp_shutdown(type_dup.as_ptr() as *mut raw::c_char);
+	}
+}
 #[cfg(test)]
 mod tests;
