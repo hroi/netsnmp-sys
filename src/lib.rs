@@ -250,7 +250,6 @@ pub fn init(typ: &[u8]) {
 	type_dup[..typ.len()].copy_from_slice(typ);
 	unsafe {
 		init_snmp(type_dup.as_ptr() as *mut raw::c_char);
-		netsnmp_init_mib();
 	}
 }
 pub fn shutdown(typ: &[u8], persist: bool) {
