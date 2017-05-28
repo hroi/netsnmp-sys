@@ -2995,6 +2995,9 @@ extern "C" {
      ->  raw::c_int;
 
     pub fn netsnmp_init_helpers();
+
+    pub fn init_vacm_vars();
+    pub fn init_usmUser();
 }
 #[repr(C)]
 #[derive(Copy)]
