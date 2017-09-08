@@ -235,6 +235,14 @@ pub const NETSNMP_DS_LIB_PRIVMASTERKEY:	raw::c_uchar = 17;
 pub const NETSNMP_DS_LIB_AUTHLOCALIZEDKEY:	raw::c_uchar = 18;
 pub const NETSNMP_DS_LIB_PRIVLOCALIZEDKEY:	raw::c_uchar = 19;
 
+
+
+mod agent_constants;
+pub use agent_constants::*;
+
+mod auto_agent;
+pub use auto_agent::*;
+
 mod auto;
 pub use auto::*;
 
